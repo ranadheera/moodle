@@ -168,6 +168,13 @@ define('PARAM_LANG',  'lang');
 define('PARAM_LOCALURL', 'localurl');
 
 /**
+*
+* PARAM_LOCALFLOAT - Language specific decimal numbers
+*
+*/
+define('PARAM_LOCALFLOAT', 'localfoat');
+
+/**
  * PARAM_NOTAGS - all html tags are stripped from the text. Do not abuse this type.
  */
 define('PARAM_NOTAGS',   'notags');
@@ -792,6 +799,9 @@ function clean_param($param, $type) {
 
         case PARAM_FLOAT:
             return (float)$param;  // Convert to float
+            
+        case PARAM_LOCALFLOAT:
+            return unformat_float($param); //Converts locale specific floating point/comma number back to standard PHP float 
 
         case PARAM_ALPHA:        // Remove everything not a-z
             return preg_replace('/[^a-zA-Z]/i', '', $param);

@@ -191,7 +191,7 @@ abstract class question_edit_form extends question_wizard_form {
 
         $mform->addElement('text', 'defaultmark', get_string('defaultmark', 'question'),
                 array('size' => 7));
-        $mform->setType('defaultmark', PARAM_FLOAT);
+        $mform->setType('defaultmark', PARAM_LOCALFLOAT);
         $mform->setDefault('defaultmark', 1);
         $mform->addRule('defaultmark', null, 'required', null, 'client');
 
